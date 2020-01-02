@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CardsContainer from './components/main/cardsContainer';
+import Sidebar from './components/sidebar/sidebar';
 import './App.css';
 
 /*
@@ -18,7 +19,14 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            users: ''
+            users: '',
+            filters: {
+                AND: false,
+                DS: false,
+                iOS: false,
+                WEB: false,
+                UX: false
+            }
         };
     }
 
@@ -35,10 +43,27 @@ class App extends React.Component {
             .catch(error => console.log(error));
     }
 
+    handlesChanges = event => {
+        event.target.checked
+            ? this.setState({
+                  filters: { ...this.state.filters, [event.target.name]: true }
+              })
+            : this.setState({
+                  filters: { ...this.state.filters, [event.target.name]: false }
+              });
+    };
+
     render() {
         return (
             <div className="App">
-                <CardsContainer users={this.state.users} />
+                <Sidebar
+                    filters={this.state.filters}
+                    handlesChanges={this.handlesChanges}
+                />
+                <CardsContainer
+                    users={this.state.users}
+                    handlesChanges={this.handlesChanges}
+                />
             </div>
         );
     }

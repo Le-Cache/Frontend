@@ -16,7 +16,10 @@ const UserCard = props => {
     return (
         <div>
             {props.data[profilePic] ? (
-                <img src={props.data[profilePic][0].url} />
+                <img
+                    src={props.data[profilePic][0].url}
+                    alt={`${props.data[firstName]} ${props.data[lastName]}`}
+                />
             ) : (
                 <></>
             )}

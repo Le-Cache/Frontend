@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import CardsContainer from './components/main/cardsContainer';
 import Sidebar from './components/sidebar/sidebar';
-import './App.css';
 
 /*
 App
@@ -20,13 +19,7 @@ class App extends React.Component {
         super();
         this.state = {
             users: '',
-            filters: {
-                AND: false,
-                DS: false,
-                iOS: false,
-                WEB: false,
-                UX: false
-            }
+            filters: []
         };
     }
 
@@ -46,26 +39,39 @@ class App extends React.Component {
     handlesChanges = event => {
         event.target.checked
             ? this.setState({
-                  filters: { ...this.state.filters, [event.target.name]: true }
+                  filters: [...this.state.filters, event.target.name]
               })
             : this.setState({
-                  filters: { ...this.state.filters, [event.target.name]: false }
+                  filters: this.state.filters.filter(item => {
+                      return item !== event.target.name;
+                  })
               });
     };
 
     render() {
-        return (
-            <div className="App">
-                <Sidebar
-                    filters={this.state.filters}
-                    handlesChanges={this.handlesChanges}
-                />
-                <CardsContainer
-                    users={this.state.users}
-                    handlesChanges={this.handlesChanges}
-                />
-            </div>
-        );
+        if (this.state.users !== '') {
+            return (
+                <div className="App">
+                    <Sidebar
+                        filters={this.state.filters}
+                        handlesChanges={this.handlesChanges}
+                    />
+                    <CardsContainer
+                        users={this.state.users.filter(user => {
+                            const program = 'Which program are you in?';
+                            return this.state.filters.length > 0
+                                ? this.state.filters.includes(
+                                      user.fields[program]
+                                  )
+                                : user;
+                        })}
+                        handlesChanges={this.handlesChanges}
+                    />
+                </div>
+            );
+        } else {
+            return <h2>Loading..</h2>;
+        }
     }
 }
 

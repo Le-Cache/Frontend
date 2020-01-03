@@ -4,47 +4,47 @@ import Navigation from './navigation';
 const Sidebar = props => (
     <div>
         <form>
-            <label htmlFor="AND">
+            <label htmlFor="Android Development">
                 <input
                     type="checkbox"
-                    name="AND"
-                    id="AND"
+                    name="Android Development"
+                    id="Android Development"
                     onChange={props.handlesChanges}
                 />
                 Android Developer
             </label>
-            <label htmlFor="DS">
+            <label htmlFor="Data Science">
                 <input
                     type="checkbox"
-                    name="DS"
-                    id="DS"
+                    name="Data Science"
+                    id="Data Science"
                     onChange={props.handlesChanges}
                 />
                 Data Science
             </label>
-            <label htmlFor="iOS">
+            <label htmlFor="iOS Development">
                 <input
                     type="checkbox"
-                    name="iOS"
-                    id="iOS"
+                    name="iOS Development"
+                    id="iOS Development"
                     onChange={props.handlesChanges}
                 />
                 iOS Developer
             </label>
-            <label htmlFor="WEB">
+            <label htmlFor="Web Development">
                 <input
                     type="checkbox"
-                    name="WEB"
-                    id="WEB"
+                    name="Web Development"
+                    id="Web Development"
                     onChange={props.handlesChanges}
                 />
                 Web Developer
             </label>
-            <label htmlFor="UX">
+            <label htmlFor="UX Design">
                 <input
                     type="checkbox"
-                    name="UX"
-                    id="UX"
+                    name="UX Design"
+                    id="UX Design"
                     onChange={props.handlesChanges}
                 />
                 UX Design

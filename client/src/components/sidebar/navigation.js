@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => (
     <nav>
-        <a href="/">
+        <NavLink to="/about">
             <p>About</p>
-        </a>
+        </NavLink>
         <a
             href="https://airtable.com/shrZE2v6sztAM40oo"
             rel="noopener noreferrer"

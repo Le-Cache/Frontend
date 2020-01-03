@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import CardsContainer from './components/main/cardsContainer';
 import Sidebar from './components/sidebar/sidebar';
+import './styles/index.css';
 
 /*
 App
@@ -51,7 +52,7 @@ class App extends React.Component {
     render() {
         if (this.state.users !== '') {
             return (
-                <div className="App">
+                <div className="app">
                     <Sidebar
                         filters={this.state.filters}
                         handlesChanges={this.handlesChanges}

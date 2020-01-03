@@ -1,4 +1,7 @@
 import React from 'react';
+import placeholder from '../../assets/placeholder.png';
+import pin from '../../assets/pin.svg';
+import twitterIcon from '../../assets/twitter.png';
 
 const UserCard = props => {
     /*Field Names*/
@@ -14,25 +17,49 @@ const UserCard = props => {
     const profilePic = 'Profile Picture';
 
     return (
-        <div>
+        <div className="card">
             {props.data[profilePic] ? (
-                <img
-                    src={props.data[profilePic][0].url}
-                    alt={`${props.data[firstName]} ${props.data[lastName]}`}
-                />
+                <div className="frame">
+                    <div className="avatar-image"style={{ backgroundImage:`url(${props.data[profilePic][0].url})`}}>
+                        
+                    </div>
+                </div>
             ) : (
-                <></>
+                <div className="frame">
+                    <div className="avatar-image" style={{ backgroundImage:`url(${placeholder})`}}>
+                        
+                    </div>
+                </div>
             )}
-            <p>
-                {props.data[firstName]} {props.data[lastName]}
-            </p>
-            <p>{props.data[program]}</p>
-            <p>{props.data[location]}</p>
-            <p>{props.data[bio]}</p>
-            <p>{props.data[linkedIn]}</p>
-            {props.data[twitter] ? <p>{props.data[twitter]}</p> : <></>}
-            {props.data[github] ? <p>{props.data[github]}</p> : <></>}
-            {props.data[portfolio] ? <p>{props.data[portfolio]}</p> : <></>}
+            <div className="card-content">
+                <div className="row">
+                    <div className="col">
+                        <h2>
+                            {props.data[firstName]} {props.data[lastName]}
+                        </h2>
+                    </div>
+                    <div className="col">
+                        {props.data[twitter] ? <a className="icon" href={props.data[twitter]}  rel="noopener noreferrer" target="_blank"><img className="icon" src={`${twitterIcon}`} /></a> : <></>}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <p>{props.data[program]}</p>
+                    </div>
+                    <div className="col">
+                        <p><img className="pin" src={`${pin}`} width="12px" height="auto" />{props.data[location]}</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <p className="bio">{props.data[bio]}</p>
+                </div>
+                
+            </div>
+            <div className="row last">
+                <a className="btn" href={props.data[linkedIn]} rel="noopener noreferrer" target="_blank">Linkedin</a>
+                {props.data[portfolio] ? <a className="btn" href={props.data[portfolio]} rel="noopener noreferrer" target="_blank">Site</a> : <></>}
+                {props.data[github] ? <a className="btn" href={props.data[github]} rel="noopener noreferrer" target="_blank">GitHub</a> : <></>}
+            </div>
         </div>
     );
 };

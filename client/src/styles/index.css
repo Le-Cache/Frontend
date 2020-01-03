@@ -1,0 +1,251 @@
+/* Styles */
+
+/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Styling Begins Here */
+
+body {
+    background-color: #f2f2f2;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+
+.app {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+/* Left Column */
+aside {
+    width: 260px;
+    background-color:#f9f9f9;
+    height: 100vh;
+    position: fixed;
+}
+.logo {
+    margin-top: 24px;
+    background-color: #bb1333;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    margin: 20px;
+    position: relative;
+}
+.check {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.check > span {
+    color: #34495E;
+    padding: 0.5rem 0.25rem;
+}
+
+.check > input {
+    height: 24px;
+    width: 24px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 2px solid #D0D1D8;
+    border-radius: 4px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: #FFF;
+    cursor: pointer;
+  }
+
+.check > input:checked {
+    border: 1px solid #55596D;
+    background-color: #55596D;
+}
+
+.check > input:checked + span::before {
+    content: '\2714';
+    font-family: "Times", "Times New Roman", "serif";
+    font-weight: bold;
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    color: #FFF;
+    position: absolute;
+    left: 6px;
+    top: 4px;
+}
+
+.check > input:active {
+    border: 2px solid #34495E;
+}
+label {
+    display: block;
+    font-size: 18px;
+    color: #55596D;
+    margin-bottom: 18px;
+}
+nav {
+    position: absolute;
+    bottom: 20px;
+    margin-left: 20px;
+}
+nav > a {
+    text-decoration: none;
+    color: #0C3C78;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+/* Right Column */
+
+main {
+    position: relative;
+    left: 260px;
+    width: calc(100% - 260px);
+}
+.top {
+    height: 72px;
+    background: #FAFAFA;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    line-height: 72px;
+    padding-left: 20px;
+}
+.cards {
+    padding:24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: white;
+}
+
+/* Card Styles */
+.card {
+    width: 330px;
+    height: 400px;
+    background-color: white;
+    color:black;
+    margin:24px;
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.frame {
+    position: absolute;
+    top:0px;
+    height: 235px;
+    width: 330px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+.avatar-image {
+    height: 235px;
+    width: 330px;
+    background-size: cover;
+    background-position: center;
+}
+.card-content {
+    position: absolute;
+    top: 240px;
+    margin:8px;
+}
+.row {
+    width: 314px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 0px;
+}
+h2 {
+    font-size: 24px;
+}
+.icon {
+    margin:3px;
+}
+.bio {
+    text-align: left;
+    font-size: 12px;
+    line-height: 14px;
+}
+.btn {
+    text-decoration: none;
+    color:white;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 16px;
+    background-color:#55596D;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+.btn:hover {
+    background-color:#7B81A0 ;
+}
+.btn:active {
+    background-color: #2C2E38;
+}
+.last {
+    position: absolute;
+    bottom: 8px;
+    margin: 0 8px;
+    justify-content: flex-start;
+}

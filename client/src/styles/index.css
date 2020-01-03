@@ -301,6 +301,21 @@ h2 {
 .icon {
     margin: 3px;
 }
+.web-development {
+    color:#BB1333;
+}
+.ux-design {
+    color:#3AB5E5;
+}
+.ios-development {
+    color:#F2994A;
+}
+.android-development {
+    color:#27AE60;
+}
+.data-science {
+    color:#1A61B0;
+}
 .bio {
     text-align: left;
     font-size: 12px;

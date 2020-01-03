@@ -15,6 +15,7 @@ const UserCard = props => {
     const portfolio = 'Portfolio URL';
     const location = 'Where are you located?';
     const profilePic = 'Profile Picture';
+    let cohort = props.data[program].replace(/\s+/g, '-').toLowerCase();
 
     return (
         <div className="card">
@@ -63,7 +64,7 @@ const UserCard = props => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <p>{props.data[program]}</p>
+                        <p className={cohort}>{props.data[program]}</p>
                     </div>
                     <div className="col">
                         <p>

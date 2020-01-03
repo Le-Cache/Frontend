@@ -54,6 +54,7 @@ class App extends React.Component {
     render() {
         return (
             <>
+            {console.log(process.env.REACT_APP_APIKEY)}
                 <div className="app">
                     <Sidebar
                         filters={this.state.filters}

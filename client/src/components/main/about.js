@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -45,8 +46,15 @@ const About = () => {
                     time while enrolled within their program.{' '}
                 </p>
                 <p>
-                    Inspired by <a href="">Latinx Who Design</a> by Pablo
-                    Stanley{' '}
+                    Inspired by{' '}
+                    <a
+                        href="https://www.latinxswhodesign.com"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        Latinxs Who Design
+                    </a>{' '}
+                    by Pablo Stanley{' '}
                 </p>
             </div>
             <div className="about-info about-second-div">
@@ -61,45 +69,93 @@ const About = () => {
                     <ul>
                         <div>
                             <li>
-                                <a href="">Eileen Cuevas</a> - Web Developer
+                                <a
+                                    href="https://www.linkedin.com/in/eileen-cuevas/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Eileen Cuevas
+                                </a>{' '}
+                                - Web Developer
                             </li>
                             <li>
-                                <a href="">Daisy Mesa</a> - Web Developer
+                                <a
+                                    href="https://www.linkedin.com/in/webdevdaisy/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Daisy Mesa
+                                </a>{' '}
+                                - Web Developer
                             </li>
                             <li>
-                                <a href="">Marc Dandoy</a> - UX/UI Designer
+                                <a
+                                    href="https://www.linkedin.com/in/marcdandoy/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Marc Dandoy
+                                </a>{' '}
+                                - UX/UI Designer
                             </li>
                         </div>
                         <div>
                             <li>
-                                <a href="">Milo Rastgoo</a> - Web Developer
+                                <a
+                                    href="https://www.linkedin.com/in/rastgoo/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Milo Rastgoo
+                                </a>{' '}
+                                - Web Developer
                             </li>
                             <li>
-                                <a href="">Jamea Kidrick</a> - Web Developer
+                                <a
+                                    href="https://www.linkedin.com/in/jameakidrick/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Jamea Kidrick
+                                </a>{' '}
+                                - Web Developer
                             </li>
 
                             <li>
-                                <a href="">Laura Giron</a> - UX Designer /
-                                Project Manager
+                                <a
+                                    href=" https://www.linkedin.com/in/laurakgiron/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Laura Giron
+                                </a>{' '}
+                                - UX Designer / Project Manager
                             </li>
                         </div>
 
                         <div>
                             <li>
-                                <a href="">Robert Pedersen</a> - Web Developer
+                                <a
+                                    href="https://www.linkedin.com/in/robpedersendev/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Robert Pedersen
+                                </a>{' '}
+                                - Web Developer
                             </li>
                         </div>
                     </ul>
                 </div>
                 <hr className="divider" />
                 <div className="footer">
-                    <a href="">
+                    <NavLink exact to="/">
                         <h3>
                             <strong>
                                 <span>&larr;</span> Back to Directory
                             </strong>
                         </h3>
-                    </a>
+                    </NavLink>
                 </div>
             </div>
         </main>

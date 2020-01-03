@@ -2,18 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import CardsContainer from './components/main/cardsContainer';
 import Sidebar from './components/sidebar/sidebar';
+import { Route } from 'react-router-dom';
+import About from './components/main/about.js';
 import './styles/index.css';
-
-/*
-App
--Sidebar
---Logo (not a component)
---Tract Selection Filter...thing
---Navigation (About, Airtable, Slack)
--Main Card Thing
---Cards Component (house all the cards/introduce pagination)
----Individual card component
-*/
+require('dotenv').config();
 
 class App extends React.Component {
     constructor() {
@@ -26,13 +18,14 @@ class App extends React.Component {
 
     componentDidMount() {
         axios
-            .get(
-                'https://api.airtable.com/v0/appaTBcrHMzJR6ZnS/lecache?api_key=keyXAJzv0BQkXWbI8'
-            )
+            .get(process.env.REACT_APP_APIKEY)
             .then(res => {
                 console.log(res.data.records);
-                this.setState({ users: res.data.records });
-                // console.log(res.data.records[0].fields['First Name']);
+                this.setState({
+                    users: res.data.records.filter(
+                        record => record.fields['Approved']
+                    )
+                });
             })
             .catch(error => console.log(error));
     }
@@ -49,30 +42,69 @@ class App extends React.Component {
               });
     };
 
+    removeFromFilter = program => {
+        this.setState({
+            filters: this.state.filters.filter(item => {
+                return item !== program;
+            })
+        });
+    };
+
     render() {
-        if (this.state.users !== '') {
-            return (
-                <div className="app">
-                    <Sidebar
-                        filters={this.state.filters}
-                        handlesChanges={this.handlesChanges}
-                    />
-                    <CardsContainer
-                        users={this.state.users.filter(user => {
-                            const program = 'Which program are you in?';
-                            return this.state.filters.length > 0
-                                ? this.state.filters.includes(
-                                      user.fields[program]
-                                  )
-                                : user;
-                        })}
-                        handlesChanges={this.handlesChanges}
-                    />
-                </div>
-            );
-        } else {
-            return <h2>Loading..</h2>;
-        }
+        return (
+            <>
+                {this.state.users !== '' ? (
+                    <div className="app">
+                        <Sidebar
+                            filters={this.state.filters}
+                            handlesChanges={this.handlesChanges}
+                        />
+                        <Route
+                            exact
+                            path="/"
+                            render={props => (
+                                <CardsContainer
+                                    {...props}
+                                    filters={this.state.filters}
+                                    users={this.state.users.filter(user => {
+                                        const program =
+                                            'Which program are you in?';
+                                        return this.state.filters.length > 0
+                                            ? this.state.filters.includes(
+                                                  user.fields[program]
+                                              )
+                                            : user;
+                                    })}
+                                    handlesChanges={this.handlesChanges}
+                                    removeFromFilter={this.removeFromFilter}
+                                />
+                            )}
+                        />
+                        <Route exact path="/about" component={About} />
+                    </div>
+                ) : (
+                    <div className="app">
+                        <Sidebar
+                            filters={this.state.filters}
+                            handlesChanges={this.handlesChanges}
+                        />
+                        <Route
+                            exact
+                            path="/"
+                            render={props => (
+                                <CardsContainer
+                                    {...props}
+                                    filters={this.state.filters}
+                                    users={{}}
+                                    handlesChanges={this.handlesChanges}
+                                    removeFromFilter={this.removeFromFilter}
+                                />
+                            )}
+                        />
+                    </div>
+                )}
+            </>
+        );
     }
 }
 

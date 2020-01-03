@@ -1,57 +1,61 @@
 import React from 'react';
 import Navigation from './navigation';
+import logo from '../../assets/logo.png';
 
 const Sidebar = props => (
-    <div>
+    <aside>
+        <div className="logo">
+            <img src={`${logo}`} />
+        </div>
         <form>
-            <label htmlFor="Android Development">
+            <label htmlFor="Android Development" className="check">
                 <input
                     type="checkbox"
                     name="Android Development"
                     id="Android Development"
                     onChange={props.handlesChanges}
                 />
-                Android Developer
+                <span>Android Developer</span>
             </label>
-            <label htmlFor="Data Science">
+            <label htmlFor="Data Science" className="check">
                 <input
                     type="checkbox"
                     name="Data Science"
                     id="Data Science"
                     onChange={props.handlesChanges}
                 />
-                Data Science
+                <span>Data Science</span>
             </label>
-            <label htmlFor="iOS Development">
+            <label htmlFor="iOS Development" className="check">
                 <input
                     type="checkbox"
                     name="iOS Development"
                     id="iOS Development"
                     onChange={props.handlesChanges}
                 />
-                iOS Developer
+                <span>iOS Developer</span>
             </label>
-            <label htmlFor="Web Development">
+            <label htmlFor="Web Development" className="check">
                 <input
                     type="checkbox"
                     name="Web Development"
                     id="Web Development"
                     onChange={props.handlesChanges}
                 />
-                Web Developer
+                <span>Web Developer</span>
             </label>
-            <label htmlFor="UX Design">
+            <label htmlFor="UX Design" className="check">
                 <input
                     type="checkbox"
                     name="UX Design"
                     id="UX Design"
                     onChange={props.handlesChanges}
                 />
-                UX Design
+                <span>UX Design</span>
             </label>
         </form>
         <Navigation />
-    </div>
+    </aside>
 );
 
 export default Sidebar;
